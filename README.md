@@ -15,7 +15,7 @@ Java 7 and Maven
 ##Build and run project
     git clone git@github.com:melish/oshathumbnailgenerator.git oshathumbnailgenerator
     cd oshathumbnailgenerator
-    mvn clean jetty:run-war
+    mvn -Djetty.port=9999 jetty:run-war clean jetty:run-war
 
 ##Test
     http://localhost:8080/thumbnail?url=http%3A%2F%2Fwww.wcu.edu%2FUndergraduate_Studies_Presentation.pptx
