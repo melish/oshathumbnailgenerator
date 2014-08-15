@@ -1,9 +1,14 @@
 package ppt2img;
 
+import static org.junit.Assert.assertEquals;
+
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 
-import static org.junit.Assert.*;
+import javax.imageio.ImageIO;
+
 import org.junit.Test;
 
 public class Test1 {
@@ -13,6 +18,7 @@ public class Test1 {
 		InputStream in = Test1.class.getResourceAsStream("/test.pptx");
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
 		PPTX2png.toPng(in, out);
-		assertEquals(46793, out.toByteArray().length);
+		BufferedImage img = ImageIO.read(new ByteArrayInputStream(out.toByteArray()));
+		assertEquals(540, img.getHeight());
 	}
 }
