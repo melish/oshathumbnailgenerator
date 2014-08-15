@@ -18,7 +18,7 @@ public class ThumbnailServlet extends HttpServlet {
 		if (url != null) {
 			response.setContentType("image/png");
 			InputStream in = new URL(url).openStream();
-			PPTX2png.toPng(in, response.getOutputStream());
+			PPTX2png.pptx2png(in, response.getOutputStream());
 		} else {
 			response.setContentType("text/plain");
 			response.getWriter().println("Missing request parameter: url");

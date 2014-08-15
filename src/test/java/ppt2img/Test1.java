@@ -14,10 +14,18 @@ import org.junit.Test;
 public class Test1 {
 
 	@Test
-	public void test1() throws Exception {
+	public void testPPTX() throws Exception {
 		InputStream in = Test1.class.getResourceAsStream("/test.pptx");
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
-		PPTX2png.toPng(in, out);
+		PPTX2png.pptx2png(in, out);
+		BufferedImage img = ImageIO.read(new ByteArrayInputStream(out.toByteArray()));
+		assertEquals(540, img.getHeight());
+	}
+	@Test
+	public void testPPT() throws Exception {
+		InputStream in = Test1.class.getResourceAsStream("/test.ppt");
+		ByteArrayOutputStream out = new ByteArrayOutputStream();
+		PPTX2png.pptx2png(in, out);
 		BufferedImage img = ImageIO.read(new ByteArrayInputStream(out.toByteArray()));
 		assertEquals(540, img.getHeight());
 	}
