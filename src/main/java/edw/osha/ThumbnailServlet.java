@@ -38,7 +38,7 @@ public class ThumbnailServlet extends HttpServlet {
 				break;
 			default:
 				response.setContentType("text/plain");
-				response.getWriter().println("Missing request parameter: url");
+				response.getWriter().println("Unknown format: " + type);
 			}
 		}
 	}
