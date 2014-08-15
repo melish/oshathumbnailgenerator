@@ -22,7 +22,6 @@ public class TestPdf {
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
 		Converter.pdf2png(in, out);
 		BufferedImage img = ImageIO.read(new ByteArrayInputStream(out.toByteArray()));
-		assertEquals(540, img.getHeight());
-		ImageIO.write(img, "png", new File("test.png"));
+		assertEquals(792, img.getHeight());
 	}
 }
