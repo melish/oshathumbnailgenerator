@@ -5,10 +5,11 @@ import java.io.OutputStream;
 import org.docx4j.Docx4J;
 import org.docx4j.convert.out.FOSettings;
 import org.docx4j.openpackaging.packages.WordprocessingMLPackage;
+import org.junit.Test;
 
 public class Test2 {
 
-	// @Test
+	@Test
 	public void test() throws Exception {
 		String filename = "c:/edw/projects/sandbox2/org.samples.docxconverters.docx4j/docx/Resume.docx";
 		WordprocessingMLPackage wordMLPackage = WordprocessingMLPackage.load(new java.io.File(filename));
