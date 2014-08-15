@@ -19,4 +19,5 @@ Java 7 and Maven
 
 ##Test
     http://localhost:9999?url=http%3A%2F%2Fwww.wcu.edu%2FUndergraduate_Studies_Presentation.pptx
-    http://localhost:8080/thumbnail?url=http%3A%2F%2Fwordnet.dk%2FDanNet_symposium2009_slides_fellbaum.ppt
+    http://localhost:9999?url=http%3A%2F%2Fwordnet.dk%2FDanNet_symposium2009_slides_fellbaum.ppt
+	http://localhost:9999?url=http%3A%2F%2Fwww.tjpscollege.ac.in%2FMAN_MCA_2012.docx

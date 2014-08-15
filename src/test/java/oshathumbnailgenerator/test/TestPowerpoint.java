@@ -1,4 +1,4 @@
-package ppt2img;
+package oshathumbnailgenerator.test;
 
 import static org.junit.Assert.assertEquals;
 
@@ -11,21 +11,23 @@ import javax.imageio.ImageIO;
 
 import org.junit.Test;
 
-public class Test1 {
+import edw.osha.Converter;
+
+public class TestPowerpoint {
 
 	@Test
 	public void testPPTX() throws Exception {
-		InputStream in = Test1.class.getResourceAsStream("/test.pptx");
+		InputStream in = TestPowerpoint.class.getResourceAsStream("/test.pptx");
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
-		PPTX2png.pptx2png(in, out);
+		Converter.pptx2png(in, out);
 		BufferedImage img = ImageIO.read(new ByteArrayInputStream(out.toByteArray()));
 		assertEquals(540, img.getHeight());
 	}
 	@Test
 	public void testPPT() throws Exception {
-		InputStream in = Test1.class.getResourceAsStream("/test.ppt");
+		InputStream in = TestPowerpoint.class.getResourceAsStream("/test.ppt");
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
-		PPTX2png.pptx2png(in, out);
+		Converter.pptx2png(in, out);
 		BufferedImage img = ImageIO.read(new ByteArrayInputStream(out.toByteArray()));
 		assertEquals(540, img.getHeight());
 	}
