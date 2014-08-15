@@ -94,7 +94,7 @@
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>9.2.2.v20140723</version>
 				<configuration>
-					<jvmArgs>-Xmx 1024m</jvmArgs>
+					<jvmArgs>-mx1024M</jvmArgs>
 				</configuration>
 			</plugin>
 			<plugin>
