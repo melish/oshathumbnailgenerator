@@ -3,8 +3,8 @@ OSHA Thumbnail generator
 
 ##Prerequisites
 
-1. Java 7
-2. Maven
+Java 7 and Maven
+
     cd /var/local
     wget http://mirrors.hostingromania.ro/apache.org/maven/maven-3/3.2.2/binaries/apache-maven-3.2.2-bin.tar.gz
     tar xzvf apache-maven-3.2.2-bin.tar.gz
