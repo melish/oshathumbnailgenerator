@@ -18,4 +18,4 @@ Java 7 and Maven
     mvn -Djetty.port=9999 jetty:run-war clean jetty:run-war
 
 ##Test
-    http://localhost:8080/thumbnail?url=http%3A%2F%2Fwww.wcu.edu%2FUndergraduate_Studies_Presentation.pptx
+    http://localhost:9999?url=http%3A%2F%2Fwww.wcu.edu%2FUndergraduate_Studies_Presentation.pptx
