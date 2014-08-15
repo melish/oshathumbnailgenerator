@@ -13,7 +13,7 @@ Java 7 and Maven
     export PATH=${M2_HOME}/bin:${PATH}
 
 ##Build and run project
-    git clone git@github.com:melish/oshathumbnailgenerator.git oshathumbnailgenerator
+    git clone https://github.com/melish/oshathumbnailgenerator.git oshathumbnailgenerator
     cd oshathumbnailgenerator
     mvn -Djetty.port=9999 jetty:run-war clean jetty:run-war
 
