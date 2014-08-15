@@ -21,3 +21,8 @@ Java 7 and Maven
     http://localhost:9999?url=http%3A%2F%2Fwww.wcu.edu%2FUndergraduate_Studies_Presentation.pptx
     http://localhost:9999?url=http%3A%2F%2Fwordnet.dk%2FDanNet_symposium2009_slides_fellbaum.ppt
 	http://localhost:9999?url=http%3A%2F%2Fwww.tjpscollege.ac.in%2FMAN_MCA_2012.docx
+	http://localhost:9999?url=http://www.ada.gov/svcabrpt.pdf
+	
+##Known issues
+	Generator fails on this pdf: http://www.milan-ramaiya.com/files/research/neuroscience2009.pdf
+	

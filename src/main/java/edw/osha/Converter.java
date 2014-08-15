@@ -28,10 +28,14 @@ import org.apache.poi.xslf.usermodel.XSLFSlide;
 import org.apache.poi.xwpf.converter.pdf.PdfConverter;
 import org.apache.poi.xwpf.converter.pdf.PdfOptions;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.icepdf.core.pobjects.Document;
+import org.icepdf.core.pobjects.Page;
+import org.icepdf.core.util.GraphicsRenderingHints;
 
 public class Converter {
 
 	static float SCALE = 1.0f;
+	static float ROTATION = 0f;
 
 	public static void pptx2png(InputStream in, OutputStream out) throws IOException {
 
@@ -61,7 +65,6 @@ public class Converter {
 			BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 			firstSlide.draw(prepareGraphics(img, width, height));
 			ImageIO.write(img, "png", out);
-			out.close();
 		}
 	}
 
@@ -96,7 +99,6 @@ public class Converter {
 			BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 			firstSlide.draw(prepareGraphics(img, width, height));
 			ImageIO.write(img, "png", out);
-			out.close();
 		}
 	}
 
@@ -108,13 +110,31 @@ public class Converter {
 		PdfConverter.getInstance().convert(document, outPdf, options);
 
 		ByteArrayInputStream pdfIn = new ByteArrayInputStream(outPdf.toByteArray());
-		PDDocument pdf = PDDocument.load(pdfIn);
+		pdf2png(pdfIn, out);
+	}
+
+	public static void pdf2png(InputStream in, OutputStream out) throws IOException {
+		Document document = new Document();
+		try {
+			document.setInputStream(in, null);
+			if (document.getNumberOfPages() > 0) {
+				BufferedImage img = (BufferedImage) document.getPageImage(0, GraphicsRenderingHints.PRINT,
+						Page.BOUNDARY_CROPBOX, ROTATION, SCALE);
+				ImageIO.write(img, "png", out);
+			}
+			document.dispose();
+		} catch (Exception e) {
+			throw new IOException(e);
+		}
+	}
+
+	public static void pdf2pngUsingPdfBox(InputStream in, OutputStream out) throws IOException {
+		PDDocument pdf = PDDocument.load(in);
 		List<PDPage> pages = pdf.getDocumentCatalog().getAllPages();
 		if (pages.size() > 0) {
 			PDPage firstPage = pages.get(0);
 			BufferedImage img = firstPage.convertToImage(BufferedImage.TYPE_INT_RGB, 96);
 			ImageIO.write(img, "png", out);
-			out.close();
 		}
 	}
 

@@ -36,6 +36,9 @@ public class ThumbnailServlet extends HttpServlet {
 			case "docx":
 				Converter.docx2png(in, response.getOutputStream());
 				break;
+			case "pdf":
+				Converter.pdf2png(in, response.getOutputStream());
+				break;
 			default:
 				response.setContentType("text/plain");
 				response.getWriter().println("Unknown format: " + type);
